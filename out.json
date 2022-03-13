@@ -1,0 +1,83 @@
+[
+    {
+        "a released": "released"
+    },
+    {
+        "b released": "released"
+    },
+    {
+        "c released": "released"
+    },
+    {
+        "x released": "released"
+    },
+    {
+        "y released": "released"
+    },
+    {
+        "z released": "released"
+    },
+    {
+        "tl released": "released"
+    },
+    {
+        "tr released": "released"
+    },
+    {
+        "tl2 released": "released"
+    },
+    {
+        "tr2 released": "released"
+    },
+    {
+        "select released": "released"
+    },
+    {
+        "start released": "released"
+    },
+    {
+        "mode released": "released"
+    },
+    {
+        "x": "0.000"
+    },
+    {
+        "y": "0.000"
+    },
+    {
+        "z": "0.000"
+    },
+    {
+        "rz": "0.000"
+    },
+    {
+        "hat0x": "0.000"
+    },
+    {
+        "hat0y": "0.000"
+    },
+    {
+        "x pressed": "pressed"
+    },
+    {
+        "x released": "released"
+    },
+    {
+        "a pressed": "pressed"
+    },
+    {
+        "a released": "released"
+    },
+    {
+        "b pressed": "pressed"
+    },
+    {
+        "b released": "released"
+    },
+    {
+        "c pressed": "pressed"
+    },
+    {
+        "c released": "released"
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "type": "axis",
+        "mode": "No-Analog",
+        "x": { 
+                "value": "-1.000",
+                "timeout": 30,
+                "combo": "chained"
+             }
+    },
+    {
+        "type": "axis",
+        "mode": "No-Analog",
+        "y": {
+                "value": "1.000",
+                "timeout": 28,
+                "combo": "chained"
+             }
+    },
+    {
+        "type": "button",
+        "mode": "No-Analog",
+        "x": { 
+                "value": "pressed",
+                "timeout": 21,
+                "combo": "chained"
+             }
+    },
+    {
+        "type": "button",
+        "mode": "No-Analog",
+        "x": { 
+                "value": "released",
+                "timeout": 20,
+                "combo": "chained"
+             }
+    }
+]
