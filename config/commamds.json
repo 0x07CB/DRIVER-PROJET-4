@@ -1,0 +1,26 @@
+[
+	{
+	“SMCselect” : [{
+			“name”:””,
+			“value”:””
+		}]
+	},
+	{	
+	“SMCup” = [{
+			“name”:””,
+			“value”:””
+		}]
+	},
+	{	
+	“SMCdow” = [{
+			“name”:””,
+			“value”:””
+		}]
+	},
+	{
+	“SMConoff” = [{
+			“name”:””,
+			“value”:””
+		}]
+	}
+]	

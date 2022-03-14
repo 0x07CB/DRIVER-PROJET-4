@@ -207,23 +207,7 @@ class DriverJS(object):
 								}
 
 								
-		SMCstate = 0					
-		SMCselect = {
-				"name":"",
-				"value":""
-			}
-		SMCup = {
-				"name":"",
-				"value":""
-			}
-		SMCdown = {
-				"name":"",
-				"value":""
-			}
-		SMConoff = {
-				"name":"",
-				"value":""
-			}
+
 
 def formatageFn(BUFFER0):
 	Header = []
@@ -255,8 +239,10 @@ while True:
 	BUFFER0.append(ev2buf)
 	print("count --> {}".format(len(BUFFER0)))
 	BUFFER0 = formatageFn(BUFFER0)
+	
+	
+	
 	if False: #19 + 4*2: #19 init + 4*2 :4 pull down/up
 		with open("out.json",'wb') as f1:
 			f1.write(json.dumps(BUFFER0,sort_keys=True, indent=4).encode())
 			f1.close()
-			exit(0)
