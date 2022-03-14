@@ -1,26 +1,26 @@
 [
 	{
 	“SMCselect” : [{
-			“name”:””,
-			“value”:””
+			“name”:”a”,
+			“value”:”pressed”
 		}]
 	},
 	{	
 	“SMCup” = [{
-			“name”:””,
-			“value”:””
+			“name”:”y”,
+			“value”:”-1.000”
 		}]
 	},
 	{	
-	“SMCdow” = [{
-			“name”:””,
-			“value”:””
+	“SMCdown” = [{
+			“name”:”y”,
+			“value”:”1.000”
 		}]
 	},
 	{
 	“SMConoff” = [{
-			“name”:””,
-			“value”:””
+			“name”:”c”,
+			“value”:”pressed”
 		}]
 	}
 ]	
