@@ -5,6 +5,7 @@
 import json
 import os, struct, array
 from fcntl import ioctl
+from datetime import datetime
 initStart=True
 # These constants were borrowed from linux/input.h
 class DriverJS(object):
@@ -181,10 +182,32 @@ class DriverJS(object):
 
 def formatageFn(BUFFER0):
 	Header = []
+	Body = []
 	for i in range(0,len(BUFFER0)):
+		print("<<<",BUFFER0[i])
+		for k,v in BUFFER0[i].items():
+			BUFFER0[i] = {
+				"key_name": k,
+				"state": v
+			}
+		now = datetime.now()
+		BUFFER0[i]["timestamp"] = now.strftime("%d/%m/%Y-%H:%M:%S")
+		"""
+		k,v = BUFFER0[i]
+		if "pressed" in v:
+			A = datetime.now()
+		elif "released" in v:
+			B = datetime.now()
+			TIMEDELTA = B - A
+			DELTA = TIMEDELTA.strftime("%d/%m/%Y-%H:%M:%S")
+			BUFFER0[i]["delta"] = DELTA
+		"""
+			
 		if i <= 18:
 			Header.append(BUFFER0[i])
 		else:
+			Body.append(BUFFER0[i])
+	return Header, Body
 			
 
 djs = DriverJS()
@@ -197,8 +220,8 @@ while True:
 	BUFFER0.append(ev2buf)
 	print("count --> {}".format(len(BUFFER0)))
 	if len(BUFFER0) == 19 + 4*2: #19 init + 4*2 :4 pull down/up
-		BUFFER0 = formatageFn(BUFFER0)
+		Header, Body = formatageFn(BUFFER0)
 		with open("out.json",'wb') as f1:
-			f1.write(json.dumps(BUFFER0,sort_keys=True, indent=4).encode())
+			f1.write(json.dumps({"header":Header,"body":Body},sort_keys=True, indent=4).encode())
 			f1.close()
 			exit(0)
