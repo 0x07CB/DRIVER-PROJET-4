@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Released by rdb under the Unlicense (unlicense.org)
 # Based on information from:
 # https://www.kernel.org/doc/Documentation/input/joystick-api.txt
@@ -6,6 +7,10 @@ import json
 import os, struct, array
 from fcntl import ioctl
 from datetime import datetime
+from os import system, urandom
+import keyboard
+
+
 initStart=True
 # These constants were borrowed from linux/input.h
 class DriverJS(object):
@@ -187,22 +192,9 @@ def formatageFn(BUFFER0):
 		print("<<<",BUFFER0[i])
 		for k,v in BUFFER0[i].items():
 			BUFFER0[i] = {
-				"key_name": k,
+				"key_name": k.replace(" released","").replace(" pressed",""),
 				"state": v
 			}
-		now = datetime.now()
-		BUFFER0[i]["timestamp"] = now.strftime("%d/%m/%Y-%H:%M:%S")
-		"""
-		k,v = BUFFER0[i]
-		if "pressed" in v:
-			A = datetime.now()
-		elif "released" in v:
-			B = datetime.now()
-			TIMEDELTA = B - A
-			DELTA = TIMEDELTA.strftime("%d/%m/%Y-%H:%M:%S")
-			BUFFER0[i]["delta"] = DELTA
-		"""
-			
 		if i <= 18:
 			Header.append(BUFFER0[i])
 		else:
@@ -213,15 +205,20 @@ def formatageFn(BUFFER0):
 djs = DriverJS()
 BUFFER0=[]
 # Main event loop
-while True:
-	ev2buf=djs.LoopReadJS(initStart)
-	initStart=False
-	print(ev2buf)
-	BUFFER0.append(ev2buf)
-	print("count --> {}".format(len(BUFFER0)))
-	if len(BUFFER0) == 19 + 4*2: #19 init + 4*2 :4 pull down/up
-		Header, Body = formatageFn(BUFFER0)
-		with open("out.json",'wb') as f1:
-			f1.write(json.dumps({"header":Header,"body":Body},sort_keys=True, indent=4).encode())
-			f1.close()
-			exit(0)
+def main_fn(nb_pull=1):
+	global initStart
+	while True:
+		ev2buf=djs.LoopReadJS(initStart)
+		initStart=False
+		print(ev2buf)
+		BUFFER0.append(ev2buf)
+		print("count --> {}".format(len(BUFFER0)))
+		if len(BUFFER0) == 19 + nb_pull*2: # eg: 19 init + 4*2 :4 pull down/up
+			Header, Body = formatageFn(BUFFER0)
+			with open("out.json",'wb') as f1:
+				f1.write(json.dumps({"header":Header,"body":Body},sort_keys=True, indent=4).encode())
+				f1.close()
+				exit(0)
+
+main_fn(2)
+
