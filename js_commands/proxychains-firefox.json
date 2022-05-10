@@ -1,0 +1,106 @@
+{
+    "body": [
+        {
+            "key_name": "a",
+            "state": "pressed"
+        },
+        {
+            "key_name": "a",
+            "state": "released"
+        },
+        {
+            "key_name": "tr",
+            "state": "pressed"
+        },
+        {
+            "key_name": "tr",
+            "state": "released"
+        },
+        {
+            "key_name": "tl",
+            "state": "pressed"
+        },
+        {
+            "key_name": "tl",
+            "state": "released"
+        }
+    ],
+    "header": [
+        {
+            "key_name": "a",
+            "state": "released"
+        },
+        {
+            "key_name": "b",
+            "state": "released"
+        },
+        {
+            "key_name": "c",
+            "state": "released"
+        },
+        {
+            "key_name": "x",
+            "state": "released"
+        },
+        {
+            "key_name": "y",
+            "state": "released"
+        },
+        {
+            "key_name": "z",
+            "state": "released"
+        },
+        {
+            "key_name": "tl",
+            "state": "released"
+        },
+        {
+            "key_name": "tr",
+            "state": "released"
+        },
+        {
+            "key_name": "tl2",
+            "state": "released"
+        },
+        {
+            "key_name": "tr2",
+            "state": "released"
+        },
+        {
+            "key_name": "select",
+            "state": "released"
+        },
+        {
+            "key_name": "start",
+            "state": "released"
+        },
+        {
+            "key_name": "mode",
+            "state": "released"
+        },
+        {
+            "key_name": "x",
+            "state": "0.000"
+        },
+        {
+            "key_name": "y",
+            "state": "0.000"
+        },
+        {
+            "key_name": "z",
+            "state": "0.000"
+        },
+        {
+            "key_name": "rz",
+            "state": "0.000"
+        },
+        {
+            "key_name": "hat0x",
+            "state": "0.000"
+        },
+        {
+            "key_name": "hat0y",
+            "state": "0.000"
+        }
+    ]
+}
