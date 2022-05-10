@@ -10,6 +10,10 @@ from datetime import datetime
 from os import system, urandom
 import keyboard
 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("combo", help="combo of keys number.")
+args = parser.parse_args()
 
 initStart=True
 # These constants were borrowed from linux/input.h
@@ -96,11 +100,11 @@ class DriverJS(object):
 	def LoopReadJS(self,init=False):
 		if True:
 			# Iterate over the joystick devices.
-			if init: print('Available devices:')
+			#if init: print('Available devices:')
 
 			for fn in os.listdir('/dev/input'):
 				if fn.startswith('js'):
-					if init: print('  /dev/input/%s' % (fn))
+					pass #if init: print('  /dev/input/%s' % (fn))
 
 			if init:
 				# We'll store the states here.
@@ -111,7 +115,7 @@ class DriverJS(object):
 				self.button_map = []
 				# Open the joystick device.
 				self.fn = '/dev/input/js0'
-				print('Opening %s...' % self.fn)
+				#print('Opening %s...' % self.fn)
 				self.jsdev = open(self.fn, 'rb')
 
 				# Get the device name.
@@ -119,7 +123,7 @@ class DriverJS(object):
 				buf = array.array('B', [0] * 64)
 				ioctl(self.jsdev, 0x80006a13 + (0x10000 * len(buf)), buf) # JSIOCGNAME(len)
 				js_name = buf.tobytes().rstrip(b'\x00').decode('utf-8')
-				print('Device name: %s' % js_name)
+				#print('Device name: %s' % js_name)
 
 				# Get number of axes and buttons.
 				buf = array.array('B', [0])
@@ -148,8 +152,8 @@ class DriverJS(object):
 					self.button_map.append(self.btn_name)
 					self.button_states[self.btn_name] = 0
 
-					print('%d axes found: %s' % (num_axes, ', '.join(self.axis_map)))
-					print('%d buttons found: %s' % (num_buttons, ', '.join(self.button_map)))
+					#print('%d axes found: %s' % (num_axes, ', '.join(self.axis_map)))
+					#print('%d buttons found: %s' % (num_buttons, ', '.join(self.button_map)))
 				
 		
 			evbuf = self.jsdev.read(8)
@@ -158,7 +162,7 @@ class DriverJS(object):
 				time, value, type, number = struct.unpack('IhBB', evbuf)
 
 				if type & 0x80:
-					print("(initial)", end="")
+					pass#print("(initial)", end="")
 
 				if type & 0x01:
 					button = self.button_map[number]
@@ -166,12 +170,12 @@ class DriverJS(object):
 						self.button_states[button] = value
 						if value:
 							#jsdev.close()
-							print("%s pressed" % (button))
+							#print("%s pressed" % (button))
 							keyv="%s pressed" % (button)
 							return {keyv:"pressed"}
 						else:
 							#jsdev.close()
-							print("%s released" % (button))
+							#print("%s released" % (button))
 							keyv="%s released" % (button)
 							return {keyv:"released"}
 
@@ -181,7 +185,7 @@ class DriverJS(object):
 						#jsdev.close()
 						fvalue = value / 32767.0
 						self.axis_states[axis] = fvalue
-						print("%s: %.3f" % (axis, fvalue))
+						#print("%s: %.3f" % (axis, fvalue))
 						return {axis: "%.3f" % (fvalue)}
 				
 
@@ -189,7 +193,7 @@ def formatageFn(BUFFER0):
 	Header = []
 	Body = []
 	for i in range(0,len(BUFFER0)):
-		print("<<<",BUFFER0[i])
+		#print("<<<",BUFFER0[i])
 		for k,v in BUFFER0[i].items():
 			BUFFER0[i] = {
 				"key_name": k.replace(" released","").replace(" pressed",""),
@@ -210,9 +214,9 @@ def main_fn(nb_pull=1):
 	while True:
 		ev2buf=djs.LoopReadJS(initStart)
 		initStart=False
-		print(ev2buf)
+		#print(ev2buf)
 		BUFFER0.append(ev2buf)
-		print("count --> {}".format(len(BUFFER0)))
+		#print("count --> {}".format(len(BUFFER0)))
 		if len(BUFFER0) == 19 + nb_pull*2: # eg: 19 init + 4*2 :4 pull down/up
 			Header, Body = formatageFn(BUFFER0)
 			with open("out.json",'wb') as f1:
@@ -220,5 +224,5 @@ def main_fn(nb_pull=1):
 				f1.close()
 				exit(0)
 
-main_fn(2)
+main_fn(args.combo)
 
