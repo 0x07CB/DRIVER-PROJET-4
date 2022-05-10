@@ -1,0 +1,26 @@
+[
+	{
+	“SMCselect” : [{
+			“name”:”a”,
+			“value”:”pressed”
+		}]
+	},
+	{	
+	“SMCup” = [{
+			“name”:”y”,
+			“value”:”-1.000”
+		}]
+	},
+	{	
+	“SMCdown” = [{
+			“name”:”y”,
+			“value”:”1.000”
+		}]
+	},
+	{
+	“SMConoff” = [{
+			“name”:”c”,
+			“value”:”pressed”
+		}]
+	}
+]	
