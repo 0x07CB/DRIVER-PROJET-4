@@ -1,20 +1,28 @@
 {
     "body": [
         {
-            "key_name": "y",
-            "state": "1.000"
-        },
-        {
-            "key_name": "y",
-            "state": "0.000"
-        },
-        {
             "key_name": "a",
             "state": "pressed"
         },
         {
             "key_name": "a",
             "state": "released"
+        },
+        {
+            "key_name": "b",
+            "state": "pressed"
+        },
+        {
+            "key_name": "b",
+            "state": "released"
+        },
+        {
+            "key_name": "y",
+            "state": "-1.000"
+        },
+        {
+            "key_name": "y",
+            "state": "0.000"
         }
     ],
     "header": [

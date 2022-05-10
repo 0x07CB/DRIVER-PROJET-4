@@ -1,19 +1,19 @@
 {
     "body": [
         {
-            "key_name": "y",
-            "state": "1.000"
-        },
-        {
-            "key_name": "y",
-            "state": "0.000"
-        },
-        {
-            "key_name": "a",
+            "key_name": "tl",
             "state": "pressed"
         },
         {
-            "key_name": "a",
+            "key_name": "tl",
+            "state": "released"
+        },
+        {
+            "key_name": "tl",
+            "state": "pressed"
+        },
+        {
+            "key_name": "tl",
             "state": "released"
         }
     ],
