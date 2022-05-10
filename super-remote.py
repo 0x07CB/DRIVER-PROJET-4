@@ -12,7 +12,7 @@ import keyboard
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("combo", help="combo of keys number.")
+parser.add_argument("combo", help="combo of keys number.",type=int)
 args = parser.parse_args()
 
 initStart=True
