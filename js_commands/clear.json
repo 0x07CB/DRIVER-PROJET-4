@@ -1,19 +1,19 @@
 {
     "body": [
         {
-            "key_name": "y",
+            "key_name": "tr",
             "state": "pressed"
         },
         {
-            "key_name": "z",
-            "state": "pressed"
-        },
-        {
-            "key_name": "z",
+            "key_name": "tr",
             "state": "released"
         },
         {
-            "key_name": "y",
+            "key_name": "tr",
+            "state": "pressed"
+        },
+        {
+            "key_name": "tr",
             "state": "released"
         }
     ],

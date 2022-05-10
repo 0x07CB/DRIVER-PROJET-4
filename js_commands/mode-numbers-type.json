@@ -1,20 +1,20 @@
 {
     "body": [
         {
-            "key_name": "mode",
-            "state": "released"
-        },
-        {
-            "key_name": "mode",
+            "key_name": "tl2",
             "state": "pressed"
         },
         {
-            "key_name": "mode",
+            "key_name": "tl2",
             "state": "released"
         },
         {
             "key_name": "tr2",
             "state": "pressed"
+        },
+        {
+            "key_name": "tr2",
+            "state": "released"
         }
     ],
     "header": [
@@ -68,7 +68,7 @@
         },
         {
             "key_name": "mode",
-            "state": "pressed"
+            "state": "released"
         },
         {
             "key_name": "x",
