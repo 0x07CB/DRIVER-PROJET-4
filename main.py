@@ -42,7 +42,7 @@ actions = [
     {
         "json": "htop.json",
         "action": "bash -c 'htop'"
-    }
+    },
     {
         "json": "check-systemd.json",
         "action": "bash -c 'sudo systemctl --failed'"
